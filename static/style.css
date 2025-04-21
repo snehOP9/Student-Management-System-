@@ -1,0 +1,342 @@
+:root {
+  --pri: #0062cc;
+  --pri-dark: #003f7f;
+  --accent: #ffca2c;
+  --success: #28a745;
+  --text-light: #fff;
+  --text-dark: #222;
+  --bg-glass: rgba(255, 255, 255, 0.15);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+}
+canvas{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+body.dark {
+  --pri: #0d6efd;
+  --pri-dark: #084298;
+  --accent: #ffc107;
+  --success: #198754;
+  --text-light: #eee;
+  --bg-glass: rgba(0, 0, 0, 0.3);
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+}
+.navabr{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  animation: slideInTop 1s ease;
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+body {
+  background: url("/static/lms-learning-management-system-hand-pressing-button-technology-screen-274029415.jpeg") center/cover no-repeat fixed;
+  color: #fff;
+  min-height: 100vh;
+background-color:black;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: -1;
+}
+
+
+
+.navbar-brand {
+  color: var(--text-light);
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  bottom: -4px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 60px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 64px);
+  color: var(--text-light);
+  animation: bounce 3s infinite;
+}
+
+.hero p {
+  color: #e0e0e0;
+  font-size: clamp(16px, 3vw, 22px);
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.container {
+  width: min(95%, 1100px);
+  margin-inline: auto;
+  padding-block: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  animation: floatIn 1.2s ease;
+}
+
+@keyframes floatIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.card input,
+.card select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.card input::placeholder {
+  color: #eee;
+}
+
+.card input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.01);
+}
+
+.card button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  background: var(--success);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background: #1e7d3c;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  animation: fadeIn 2s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(8px);
+}
+
+thead {
+  background: var(--pri-dark);
+  color: var(--text-light);
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: left;
+  color: var(--text-light);
+  transition: background 0.3s;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.01);
+}
+
+.btn-small {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+background-color: rgba(111, 107, 107, 0.15) !important;
+}
+
+.bg-pri {
+  background: var(--pri);
+}
+
+.bg-pri:hover {
+  background: var(--pri-dark);
+  transform: scale(1.05);
+}
+
+.bg-warn {
+  background: #dc3545;
+}
+
+.bg-warn:hover {
+  background: #b02a37;
+  transform: scale(1.05);
+}
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: rgba(111, 107, 107, 0.15);
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  z-index: 1000;
+  font-weight: bold;
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 74px;
+}
+
+.theme-switcher:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.2);
+}
+
+@media(max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: var(--text-light);
+    font-size: 28px;
+  }
+}
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loader img {
+  width: 180px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.hero h1 {
+  animation: slideIn 1s ease-out, glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px black; }
+  to   { text-shadow: 0 0 25px #838e8f; }
+}
+
+.btn-small {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s;
+}
+.btn-small:hover {
+  transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+}

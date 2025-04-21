@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block hero %}
+<div class="hero-section">
+  <h1>Welcome to Student Management</h1>
+  <p>Easily track, update, and manage student information all in one place.</p>
+  <a class="btn btn-primary" href="{{ url_for('add_student') }}">Add New Student</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="search-wrapper">
+  <input type="text" id="searchInput" placeholder="Search by Name, Roll, Branch..."/>
+</div>
+<h2>Student List</h2>
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Branch</th>
+            <th>Email</th>
+            <th>Marks</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll_number }}</td>
+            <td>{{ student.branch }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.marks }}</td>
+            <td>
+                <a href="{{ url_for('update_student', id=student.id) }}">Edit</a>
+                <form method="post" action="{{ url_for('delete_student', id=student.id) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const s=document.getElementById("searchInput"),t=document.getElementById("studentTable").getElementsByTagName("tbody")[0];s.addEventListener("input",function(){const e=s.value.toLowerCase(),r=t.getElementsByTagName("tr");for(let n=0;n<r.length;n++){let a=r[n].innerText.toLowerCase();r[n].style.display=a.indexOf(e)>-1?"":"none"}});
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}Teacher{% endblock %}
+{% block body %}
+<h2>Welcome Teacher</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>User</th><th>Math</th><th>Physics</th><th>Chemistry</th><th>Attendance</th><th>Fees</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.username }}</td>
+        <td>{{ s.subjects.Math }}</td>
+        <td>{{ s.subjects.Physics }}</td>
+        <td>{{ s.subjects.Chemistry }}</td>
+        <td>{{ s.attendance }}%</td>
+        <td>{{ 'Yes' if s.fees_paid else 'No' }}</td>
+        <td><a class="btn-small bg-pri" href="{{ url_for('teacher_update', username=s.username) }}">Update</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

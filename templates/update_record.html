@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Record</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="overlay"></div>
+  <nav class="navbar">
+    <a class="navbar-brand" href="{{ url_for('teacher_dashboard') }}">Back</a>
+  </nav>
+  <section class="hero">
+    <h1>Update Record: {{ student.username }}</h1>
+  </section>
+  <div class="container">
+    <div class="card">
+      <form method="post">
+        <input type="number" name="math" placeholder="Math" value="{{ student.subjects.Math }}" required>
+        <input type="number" name="physics" placeholder="Physics" value="{{ student.subjects.Physics }}" required>
+        <input type="number" name="chemistry" placeholder="Chemistry" value="{{ student.subjects.Chemistry }}" required>
+        <input type="number" name="attendance" placeholder="Attendance (%)" value="{{ student.attendance }}" required>
+        <label style="color: white; display: inline-block; margin-top: 10px;">
+          <input type="checkbox" name="fees_paid" {% if student.fees_paid %}checked{% endif %}> Fees Paid
+        </label>
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

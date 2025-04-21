@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Student{% endblock %}
+{% block body %}
+<h2>{{ student.username }}</h2>
+<p>Roll : {{ student.roll }}</p>
+<p>Branch : {{ student.branch }}</p>
+<p>Email : {{ student.email }}</p>
+<p>Math : {{ student.subjects.Math }}</p>
+<p>Physics : {{ student.subjects.Physics }}</p>
+<p>Chemistry : {{ student.subjects.Chemistry }}</p>
+<p>Attendance : {{ student.attendance }}%</p>
+<p>Fees Paid : {{ 'Yes' if student.fees_paid else 'No' }}</p>
+{% endblock %}

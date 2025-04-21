@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Teacher</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="overlay"></div>
+  <nav class="navbar">
+    <a class="navbar-brand" href="{{ url_for('admin_dashboard') }}">Back</a>
+  </nav>
+  <section class="hero">
+    <h1>Add Teacher</h1>
+  </section>
+  <div class="container">
+    <div class="card">
+      <form method="post">
+        <input name="username" placeholder="Username" required>
+        <input name="password" placeholder="Password" required>
+        <button>Add</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

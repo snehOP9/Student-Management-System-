@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block hero %}
+<div class="hero-section">
+  <h1>Update Student</h1>
+  <p>Modify existing student details.</p>
+</div>
+{% endblock %}
+{% block content %}
+<h2>Update Student</h2>
+<form method="post">
+    <label>Name</label><input type="text" name="name" value="{{ student.name }}" required>
+    <label>Roll Number</label><input type="text" name="roll_number" value="{{ student.roll }}" required>
+    <label>Branch</label><input type="text" name="branch" value="{{ student.branch }}">
+    <label>Email</label><input type="email" name="email" value="{{ student.email }}">
+    <label>Math</label><input type="number" name="marks" value="{{ student.subjects.Math }}" required>
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

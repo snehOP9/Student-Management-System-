@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block hero %}
+<div class="hero-section">
+  <h1>Select Role</h1>
+  <p>Choose your role and log in.</p>
+</div>
+{% endblock %}
+{% block content %}
+<form method="post" action="{{ url_for('login') }}" class="auth-form">
+    <label>Role</label>
+    <select name="role" required>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+    </select>
+    <label>Username</label><input type="text" name="username" required>
+    <label>Password</label><input type="password" name="password" required>
+    <button type="submit">Login</button>
+</form>
+{% endblock %}

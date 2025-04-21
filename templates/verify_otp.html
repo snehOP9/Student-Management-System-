@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="overlay"></div>
+  <nav class="navbar">
+    <a class="navbar-brand" href="{{ url_for('home') }}">Student Management</a>
+  </nav>
+  <section class="hero">
+    <h1>Enter OTP</h1>
+  </section>
+  <div class="container">
+    <div class="card">
+      <form method="post">
+        <input type="text" name="otp_input" placeholder="6-digit OTP" required>
+        <button>Verify OTP</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

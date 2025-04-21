@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block title %}Admin{% endblock %}
+{% block body %}
+<h2>Welcome Admin</h2>
+<a class="btn-small bg-pri" href="{{ url_for('admin_add_student') }}">Add Student</a>
+<a class="btn-small bg-pri" href="{{ url_for('admin_add_teacher') }}">Add Teacher</a>
+<div class="table-wrap">
+  <h3>Students</h3>
+  <table>
+    <thead>
+      <tr><th>Username</th><th>Roll</th><th>Branch</th><th>Email</th><th>Attendance</th><th>Fees</th></tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ s.username }}</td>
+        <td>{{ s.roll }}</td>
+        <td>{{ s.branch }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.attendance }}%</td>
+        <td>{{ 'Yes' if s.fees_paid else 'No' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="table-wrap">
+  <h3>Teachers</h3>
+  <table>
+    <thead>
+      <tr><th>Username</th></tr>
+    </thead>
+    <tbody>
+      {% for t in teachers %}
+      <tr><td>{{ t.username }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
